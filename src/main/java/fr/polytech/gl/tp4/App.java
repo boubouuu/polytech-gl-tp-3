@@ -5,7 +5,7 @@ public class App {
     private static final String BANNER = "WELCOME";
 
   public static void main(String[] args) {
-    System.out.println(BANNER);
+    System.out.println("Welcome message : " + BANNER);
     }
 
     /** Renvoie une bannière (utile pour la Javadoc). */
