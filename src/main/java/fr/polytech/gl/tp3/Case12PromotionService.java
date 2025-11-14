@@ -12,7 +12,6 @@ package fr.polytech.gl.tp3;
  */
 public class Case12PromotionService {
 
-    // ISSUE : complexité inutile
     public boolean existingIsPromoDay(String day) {
         if ("WEDNESDAY".equals(day)) {
             return true;
@@ -24,7 +23,7 @@ public class Case12PromotionService {
     // FEATURE : à implémenter
     public double applyPromo(double amount, String promoCode) {
         // TODO: implémenter selon la description
-        if ("FREE".equals(promoCode)) {
+        if ("FREE".equals(promoCode) && amount>100) {
           amount=0;
         }
         if ("HALF".equals(promoCode)) {
