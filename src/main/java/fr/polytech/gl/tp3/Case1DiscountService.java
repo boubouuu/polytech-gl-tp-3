@@ -17,9 +17,8 @@ public class Case1DiscountService {
         return "DISCOUNT-" + code; // même base
     }
 
-    // FEATURE : à implémenter
+
     public double calculateDiscountedPrice(double amount, double rate) {
-        // TODO: implémenter :
       if (rate < 0 || rate > 1) {
         throw new IllegalArgumentException("Rate value must be between 0 and 1");
       }
