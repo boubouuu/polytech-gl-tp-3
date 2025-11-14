@@ -26,13 +26,25 @@ public class Case2LoyaltyPointsService {
         } else if (points >= 200) {
             return "GOLD";
         } else {
-            return "UNUSED"; // branche inatteignable
+            return "UNUSED";
         }
     }
 
-    // FEATURE : à implémenter
     public int computeEarnedPoints(double orderAmount) {
-        // TODO: implémenter la logique décrite dans le commentaire ci-dessus
-        return -1; // volontairement faux
+        int points = 0;
+        if(orderAmount<0){
+            IllegalArgumentException e = new IllegalArgumentException();
+            throw e;
+        }
+        else if (orderAmount<50){
+                points = points + 10;
+            }
+        else if (orderAmount>50 & orderAmount<100){
+                points = points + 20;
+            }
+        else if (orderAmount<100){
+                points = points + 50;
+            }
+        return points; 
     }
 }
