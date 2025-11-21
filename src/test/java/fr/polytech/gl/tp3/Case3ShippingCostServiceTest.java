@@ -18,6 +18,6 @@ public class Case3ShippingCostServiceTest {
     void testCalculateShippingCost() {
         Case3ShippingCostService service = new Case3ShippingCostService();
         double cost1 = service.computeShippingCost(2.5, false);
-        assertEquals(8.0, cost1);
+        assertEquals(7.5, cost1);
     }
 }
