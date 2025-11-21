@@ -19,6 +19,8 @@ public class Case11Test {
   void testComputeVat() {
     assertEquals(-1, service.computeVat(-1, 15));
     assertEquals(-1, service.computeVat(15, -1));
+    assertEquals(0, service.computeVat(0, 12));
+    assertEquals(0, service.computeVat(12, 0));
     assertEquals(100, service.computeVat(10, 10));
     assertEquals(-1, service.computeVat(-1, -1));
   }
