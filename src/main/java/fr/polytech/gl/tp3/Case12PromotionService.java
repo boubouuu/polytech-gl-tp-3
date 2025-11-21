@@ -16,14 +16,14 @@ public class Case12PromotionService {
         if ("WEDNESDAY".equals(day)) {
             return true;
         } else {
-          return false;
+            return false;
         }
     }
 
     // FEATURE : à implémenter
     public double applyPromo(double amount, String promoCode) {
         // TODO: implémenter selon la description
-        if ("FREE".equals(promoCode) && amount>100) {
+        if ("FREE".equals(promoCode) && amount>=100) {
           amount=0;
         }
         if ("HALF".equals(promoCode)) {
