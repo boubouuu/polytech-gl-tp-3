@@ -11,11 +11,6 @@ package fr.polytech.gl.tp3;
  */
 public class Case11TaxService {
   double tva = 0;
-  // ISSUE : paramètre jamais utilisé
-  public String existingVatLabel(double amount) {
-    // double unused = amount; // inutilisé
-    return "TVA standard";
-  }
 
   // FEATURE : à implémenter
   public double computeVat(double amount, double rate) {
