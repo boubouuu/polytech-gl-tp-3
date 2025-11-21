@@ -10,22 +10,22 @@ public class Case11Test {
 
   @Test
   void nullAmount() {
-    assertEquals(0, service.computeVat(0, .2));
+    assertEquals(0, service.computeVat(0, .2), 0.001);
   }
 
   @Test
   void nullRate() {
-    assertEquals(0, service.computeVat(100, 0));
+    assertEquals(0, service.computeVat(100, 0), 0.001);
   }
 
   @Test
   void normalCase() {
-    assertEquals(20, service.computeVat(100, .2));
+    assertEquals(20, service.computeVat(100, .2), 0.001);
   }
 
   @Test
   void largeCase() {
-    assertEquals(1_000_000, service.computeVat(5_000_000, .2));
+    assertEquals(1_000_000, service.computeVat(5_000_000, .2), 0.001);
   }
 
   @Test
