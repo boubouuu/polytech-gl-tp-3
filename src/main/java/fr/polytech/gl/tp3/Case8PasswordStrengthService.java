@@ -11,16 +11,33 @@ package fr.polytech.gl.tp3;
  *      - retourne un score entre 0 et 3
  * - Écrire au moins un test unitaire pour score.
  */
+
 public class Case8PasswordStrengthService {
 
     // ISSUE : comparaison de chaînes avec ==
     public boolean existingIsDefaultPassword(String password) {
-        return password == "password"; // mauvaise pratique
+        //return password == "password"; //ancienne version 
+        return "password".equals(password); //version corrigée 
     }
 
     // FEATURE : à implémenter
     public int score(String password) {
-        // TODO: implémenter la logique de scoring
-        return -1; // volontairement faux
+        if (password == null) {
+            return 0;
+        }
+
+        int score = 0;
+
+        if (password.length() >= 8) {
+            score++;
+        }
+        if (password.matches(".*[0-9].*")) {
+            score++;
+        }
+        if (password.matches(".*[A-Z].*")) {
+            score++;
+        }
+
+        return score;
     }
 }
