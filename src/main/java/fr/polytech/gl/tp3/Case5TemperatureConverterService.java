@@ -12,7 +12,7 @@ public class Case5TemperatureConverterService {
 
     // ISSUE : formule volontairement incorrecte
     public double existingToCelsius(double fahrenheit) {
-        return (fahrenheit - 32) * 5 / 9 + 10;
+        return (fahrenheit - 32) * 5 / 9;
     }
 
     // FEATURE : à implémenter
