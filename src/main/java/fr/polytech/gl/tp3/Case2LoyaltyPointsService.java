@@ -14,25 +14,31 @@ package fr.polytech.gl.tp3;
  */
 public class Case2LoyaltyPointsService {
 
-    // ISSUE : code mort / branche inatteignable
-    public String existingLevelName(int points) {
-        if (points < 0) {
-            return "ERROR";
-        }
-        if (points < 100) {
-            return "BRONZE";
-        } else if (points < 200) {
-            return "SILVER";
-        } else if (points >= 200) {
-            return "GOLD";
-        } else {
-            return "UNUSED"; // branche inatteignable
-        }
+  // ISSUE : code mort / branche inatteignable
+  public String existingLevelName(int points) {
+    if (points < 0) {
+      return "ERROR";
     }
+    if (points < 100) {
+      return "BRONZE";
+    } else if (points < 200) {
+      return "SILVER";
+    } else {
+      return "GOLD";
+    }
+  }
 
-    // FEATURE : à implémenter
-    public int computeEarnedPoints(double orderAmount) {
-        // TODO: implémenter la logique décrite dans le commentaire ci-dessus
-        return -1; // volontairement faux
+  // FEATURE : à implémenter
+  public int computeEarnedPoints(double orderAmount) {
+    if (orderAmount < 0) {
+      throw new IllegalArgumentException("orderAmount cannot be negative");
     }
+    if (orderAmount < 50) {
+      return 10;
+    } else if (orderAmount < 100) {
+      return 20;
+    } else {
+      return 50;
+    }
+  }
 }
