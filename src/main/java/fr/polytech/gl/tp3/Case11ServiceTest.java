@@ -7,7 +7,6 @@ public class Case11ServiceTest {
     public void case11test()
     {
         Case11TaxService service = new Case11TaxService();
-        LOGGER.info(service.existingVatLabel());
         if (service.computeVat(100, 20) == 20) {
             LOGGER.info("Test passed");
         } else {
