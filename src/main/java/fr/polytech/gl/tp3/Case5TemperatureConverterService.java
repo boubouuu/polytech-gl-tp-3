@@ -15,9 +15,8 @@ public class Case5TemperatureConverterService {
         return fahrenheit + 273; // n'importe quoi
     }
 
-    // FEATURE : à implémenter
+    // FEATURE : implémentée (PR de test volontairement sans test unitaire)
     public double toFahrenheit(double celsius) {
-        // TODO: implémenter la vraie formule
-        return 0; // volontairement faux
+        return celsius * 9.0 / 5.0 + 32;
     }
 }
