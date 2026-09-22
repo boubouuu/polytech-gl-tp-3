@@ -91,7 +91,7 @@ public class App {
       + " | computeVat(100, 0.2) = "
       + c11.computeVat(100.0, 0.2));      
     Case11ServiceTest test11 = new Case11ServiceTest();
-    test11.Case11test();
+    test11.case11test();
 
     // Case 12
     Case12PromotionService c12 = new Case12PromotionService();

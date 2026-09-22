@@ -1,26 +1,29 @@
 package fr.polytech.gl.tp3;
 
 public class Case11ServiceTest {
-    public void Case11test()
+    private static final java.util.logging.Logger LOGGER =
+            java.util.logging.Logger.getLogger(Case11ServiceTest.class.getName());
+
+    public void case11test()
     {
         Case11TaxService service = new Case11TaxService();
-        System.out.println(service.existingVatLabel());
+        LOGGER.info(service.existingVatLabel());
         if (service.computeVat(100, 20) == 20) {
-            System.out.println("Test passed");
+            LOGGER.info("Test passed");
         } else {
-            System.out.println("Test failed");
+            LOGGER.warning("Test failed");
         }
         try {
             service.computeVat(-100, 20);
-            System.out.println("Test failed");
+            LOGGER.warning("Test failed");
         } catch (IllegalArgumentException e) {
-            System.out.println("Test passed");
+            LOGGER.info("Test passed");
         }
         try {
             service.computeVat(100, -20);
-            System.out.println("Test failed");
+            LOGGER.warning("Test failed");
         } catch (IllegalArgumentException e) {
-            System.out.println("Test passed");
+            LOGGER.info("Test passed");
         }
     }
 }
