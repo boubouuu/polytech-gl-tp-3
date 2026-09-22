@@ -17,6 +17,11 @@ jobs:
           # the PR's own head commit so we build/analyze the contributor's code.
           ref: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.sha || github.ref }}
           fetch-depth: 0  # requis pour SonarCloud (historique)
+          # Nécessaire car actions/checkout refuse par défaut de checkout du code
+          # d'un fork dans un contexte pull_request_target (risque "pwn request").
+          # Accepté ici : dépôt pédagogique, contributeurs identifiés, et les
+          # workflows de premiers contributeurs restent soumis à approbation.
+          allow-unsafe-pr-checkout: true
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
