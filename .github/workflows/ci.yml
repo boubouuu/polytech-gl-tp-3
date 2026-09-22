@@ -3,7 +3,7 @@ name: CI — Java Maven + SonarCloud
 on:
   push:
     branches: [ "main" ]
-  pull_request:
+  pull_request_target:
     branches: [ "main" ]
 
 jobs:
@@ -13,6 +13,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          # pull_request_target checks out the base branch by default; we need
+          # the PR's own head commit so we build/analyze the contributor's code.
+          ref: ${{ github.event_name == 'pull_request_target' && github.event.pull_request.head.sha || github.ref }}
           fetch-depth: 0  # requis pour SonarCloud (historique)
       - name: Set up JDK
         uses: actions/setup-java@v4
@@ -31,7 +34,7 @@ jobs:
           echo "- Statut : ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
       - name: SonarQube Cloud Scan
         run: |
-          if [ "$GH_EVENT_NAME" = "pull_request" ]; then
+          if [ "$GH_EVENT_NAME" = "pull_request_target" ]; then
             mvn -q -B org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
               -Dsonar.host.url=https://sonarcloud.io \
               -Dsonar.qualitygate.wait=true \
