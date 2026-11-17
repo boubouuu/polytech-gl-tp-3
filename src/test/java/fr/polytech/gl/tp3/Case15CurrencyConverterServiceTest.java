@@ -24,4 +24,22 @@ class Case15CurrencyConverterServiceTest {
         Case15CurrencyConverterService service = new Case15CurrencyConverterService();
         assertThrows(IllegalArgumentException.class, () -> service.convert(100, 0));
     }
+
+    @Test
+    void existingEuroToDollar_shouldUseFixedRate() {
+        Case15CurrencyConverterService service = new Case15CurrencyConverterService();
+        assertEquals(112.34, service.existingEuroToDollar(100), 0.0001);
+    }
+
+    @Test
+    void convert_shouldAcceptZeroAmount() {
+        Case15CurrencyConverterService service = new Case15CurrencyConverterService();
+        assertEquals(0.0, service.convert(0, 1.1), 0.0001);
+    }
+
+    @Test
+    void convert_shouldAcceptRateBelowOne() {
+        Case15CurrencyConverterService service = new Case15CurrencyConverterService();
+        assertEquals(50.0, service.convert(100, 0.5), 0.0001);
+    }
 }
