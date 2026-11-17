@@ -66,6 +66,7 @@
         <artifactId>pitest-maven</artifactId>
         <version>1.15.6</version>
         <configuration>
+          <timestampedReports>false</timestampedReports>
           <mutators>
             <mutator>ALL</mutator>
           </mutators>
