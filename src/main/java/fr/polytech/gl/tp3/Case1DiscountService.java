@@ -11,22 +11,24 @@ package fr.polytech.gl.tp3;
  */
 public class Case1DiscountService {
 
+    private static final String DISCOUNT_PREFIX = "DISCOUNT";
+
     // ISSUE : duplication de littéraux ("DISCOUNT")
     public String existingDiscountLabel(String code) {
         if (code == null) {
-            return "DISCOUNT"; // littéral dupliqué
+            return DISCOUNT_PREFIX;
         }
         if (code.isBlank()) {
-            return "DISCOUNT"; // littéral dupliqué
+            return DISCOUNT_PREFIX;
         }
-        return "DISCOUNT-" + code; // même base
+        return DISCOUNT_PREFIX + "-" + code;
     }
 
     // FEATURE : à implémenter
     public double calculateDiscountedPrice(double amount, double rate) {
-        // TODO: implémenter :
-        // - si amount < 0 ou rate < 0 ou rate > 1 -> IllegalArgumentException
-        // - sinon, retourner amount * (1 - rate)
-        return 0.0; // volontairement faux
+        if (amount < 0 || rate < 0 || rate > 1) {
+            throw new IllegalArgumentException("Amount must be non-negative and rate must be between 0 and 1");
+        }
+        return amount * (1 - rate);
     }
 }
