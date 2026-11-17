@@ -12,13 +12,24 @@ package fr.polytech.gl.tp3;
 public class Case15CurrencyConverterService {
 
     // ISSUE : taux codé en dur, sans paramètre
+
+    private static final double EUR_TO_USD_RATE = 1.1234;
+
     public double existingEuroToDollar(double euros) {
-        return euros * 1.1234; // taux arbitraire
+        return euros * EUR_TO_USD_RATE; // taux arbitraire
     }
 
     // FEATURE : à implémenter
     public double convert(double amount, double rate) {
-        // TODO: implémenter en validant les entrées
-        return 0; // volontairement faux
+
+        if (amount < 0) {
+            throw new IllegalArgumentException("amount must be >= 0");
+        }
+        if (rate <= 0) {
+            throw new IllegalArgumentException("rate must be > 0");
+        }
+        return amount * rate;
+
     }
+
 }
